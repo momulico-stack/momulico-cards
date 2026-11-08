@@ -60,5 +60,17 @@
    "TMDB"
   ],
   "metricool_uuid": "-5829844966342374814"
+ },
+ {
+  "date": "2026-11-09",
+  "time": "12:00",
+  "slot": "TMI 시리즈 #1",
+  "title": "오늘의 영화 TMI 1 — 이소룡 1958 홍콩 차차차 챔피언, 108스텝 노트",
+  "film": "이소룡",
+  "sources": [
+   "Bruce Lee Foundation (Google Arts & Culture)",
+   "Dangerous Minds"
+  ],
+  "metricool_uuid": "6020995313677976834"
  }
 ]

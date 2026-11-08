@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 FONT = os.path.join(BASE, "fonts")
-GREEN = "#2ECC71"
+GREEN = "#348956"
 
 def font_face(name, weight):
     with open(os.path.join(FONT, f"Pretendard-{name}.otf"), "rb") as f:

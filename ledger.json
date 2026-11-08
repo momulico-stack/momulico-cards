@@ -1,3 +1,29 @@
 [
-  {"date": "2026-11-08", "time": "16:00", "slot": "소식", "title": "〈고질라 마이너스 제로〉 일본 개봉 첫날 실사영화 역대 1위 (9.1억 엔)", "film": "고질라 마이너스 제로", "sources": ["KAI-YOU", "Deadline", "TheWrap"], "metricool_uuid": "3006697951429349373"}
+ {
+  "date": "2026-11-08",
+  "time": "16:00",
+  "slot": "소식",
+  "title": "〈고질라 마이너스 제로〉 일본 개봉 첫날 실사영화 역대 1위 (9.1억 엔)",
+  "film": "고질라 마이너스 제로",
+  "sources": [
+   "KAI-YOU",
+   "Deadline",
+   "TheWrap"
+  ],
+  "metricool_uuid": "3006697951429349373"
+ },
+ {
+  "date": "2026-11-09",
+  "time": "21:00",
+  "slot": "TMI",
+  "title": "영화판 현피 — 윌 스미스·우베 볼·갈로/이버트·세디우크·고다르/트뤼포",
+  "film": "모음",
+  "sources": [
+   "Roger Ebert",
+   "HeraldNet",
+   "Far Out",
+   "CBS"
+  ],
+  "metricool_uuid": null
+ }
 ]

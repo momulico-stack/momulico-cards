@@ -19,7 +19,7 @@ html=f"""<!doctype html><html><head><meta charset="utf-8"><style>{mc.FONTS}
 </style></head><body><div class="card">
 <div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>
 <div class="n">2.</div><div class="h">오늘의<br>영화 <b>TMI</b></div>
-<p class="p">공포영화의 틀을 다진 앨프리드 히치콕은 무서워하는 것이 참 많았다. 그는 평생 경찰, 자동차, 그리고 달걀을 무서워했다.</p>
+<p class="p">공포영화의 틀을 다진 알프레드 히치콕은 무서워하는 것이 참 많았다. 그는 평생 경찰, 자동차, 그리고 달걀을 무서워했다.</p>
 <img class="st" src="{b('st_a.png')}" style="left:90px;top:900px;width:{S['st_a.png'][0]}px">
 <img class="st" src="{b('st_b.png')}" style="left:380px;top:800px;width:{S['st_b.png'][0]}px">
 <img class="st" src="{b('st_c.png')}" style="left:770px;top:920px;width:{S['st_c.png'][0]}px">

@@ -6,7 +6,6 @@ from playwright.sync_api import sync_playwright
 from PIL import Image, ImageFilter, ImageEnhance
 import numpy as np
 W,H=1080,1350; G=mc.GREEN
-OSW='data:font/woff2;base64,'+base64.b64encode(open(os.path.join(HERE,'../../../tools/fonts/Oswald-Bold.woff2'),'rb').read()).decode()
 def fit(im,w,h,fx=0.5,fy=0.5):
     s=max(w/im.width,h/im.height); im=im.resize((int(im.width*s)+1,int(im.height*s)+1),Image.LANCZOS)
     x=int((im.width-w)*fx); y=int((im.height-h)*fy); return im.crop((x,y,x+w,y+h))
@@ -36,14 +35,10 @@ CSS=f"""{mc.FONTS}*{{margin:0;padding:0;box-sizing:border-box}}body{{width:1080p
 .h1{{position:absolute;z-index:6;left:72px;right:60px;bottom:120px;font-size:84px;font-weight:800;line-height:1.2;letter-spacing:-0.045em;word-break:keep-all}}
 .h1 em{{font-style:normal;color:{G}}}
 .pic{{position:absolute;background-size:cover;background-position:center}}
-@font-face{{font-family:'Oswald';src:url({OSW}) format('woff2');font-weight:700}}
-.blogo{{position:absolute;z-index:9;top:56px;left:50%;transform:translateX(-50%);background:{G};padding:4px 16px 8px;line-height:1}}
-.blogo span{{display:inline-block;font-family:'Oswald';font-weight:700;font-size:46px;color:#fff;letter-spacing:.01em;transform:scaleX(.82);transform-origin:center}}
 """
 TOP='<div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>'
-BLOGO='<div class="blogo"><span>mmlc</span></div>'
 CR='<div class="cr">©2013 Inside Llewyn Davis · 4K 리마스터링 재개봉 2026.12.2</div>'
-def wrap(body,cover=False): return f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">{body}{BLOGO if cover else TOP}{CR}</div></body></html>'
+def wrap(body,cover=False): return f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">{body}{TOP}{CR}</div></body></html>'
 P=[]
 # 1 cover
 _pm=Image.open('post_main.jpg').convert('RGB'); _pm=_pm.crop((int(_pm.width*0.305),int(_pm.height*0.325),int(_pm.width*0.72),int(_pm.height*0.685)))

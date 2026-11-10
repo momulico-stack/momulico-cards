@@ -48,37 +48,37 @@ P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><di
 d,cw,ch=png('cut_cat.png',820)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st6.jpg',0.5,0.5,0.22,6)})"></div>
 <img class="cut" src="{d}" style="left:40px;top:170px;width:{cw}px">
-<div class="box" style="top:880px;left:360px;right:70px">1961년 2월, 뉴욕 그리니치빌리지. 포크 가수 르윈 데이비스는 듀오 파트너를 잃고 혼자가 됐습니다. 앨범은 팔리지 않고, 잘 곳은 매일 바뀌고, 품에는 <b>남의 집 고양이 한 마리</b>뿐입니다.</div>
+<div class="box" style="top:880px;left:360px;right:70px">1961년 2월,<br>뉴욕 그리니치빌리지.<br>포크 가수 르윈 데이비스는 듀오 파트너를 잃고 혼자가 됐습니다.<br>앨범은 안 팔리고,<br>잠은 매일 남의 집 소파에서 자죠.<br>품에 안긴 고양이마저 <b>남의 집 고양이</b>입니다.</div>
 '''))
 # 3 real model — mic still full + sofa? use mic still as photo
 mic=tone(fit(Image.open('st1.jpg').convert('RGB'),940,560,0.6,0.5))
 P.append(wrap(f'''<div class="bg" style="background:#000"></div>
 <div class="pic" style="left:70px;top:160px;width:940px;height:560px;background-image:url({b(mic)})"></div>
-<div class="box" style="top:780px">르윈의 모델은 실존 포크 가수 <b>데이브 밴 롱크</b>입니다. 코엔 형제는 그의 회고록 『맥두걸 스트리트의 시장』을 읽고 이 영화를 시작했습니다. 밴 롱크는 밥 딜런에게 소파를 내주고 노래를 가르쳐 준 사람이었지만, 끝내 딜런이 되지는 못했습니다.</div>
-<div class="pl" style="top:1060px">이 영화는 성공한 사람이 아니라,<br><b>성공을 지켜만 봐야 했던 사람</b>의 이야기입니다.</div>'''))
+<div class="box" style="top:780px">르윈의 모델은 실존 포크 가수 <b>데이브 반 롱크</b>입니다.<br>코엔 형제는 그의 회고록 『맥두걸 스트리트의 시장』에서 이 영화를 출발시켰죠.<br>반 롱크는 무명이던 밥 딜런을 자기 집 소파에 재워 주던 선배였습니다.</div>
+<div class="pl" style="top:1060px">딜런은 스타가 됐고,<br><b>반 롱크는 그 동네에 남았죠.</b></div>'''))
 # 4 live recording — duet still + studio still
 duet=tone(fit(Image.open('st3.jpg').convert('RGB'),940,400,0.5,0.45)); stu=tone(fit(Image.open('ex4.jpg').convert('RGB'),940,400,0.5,0.5))
 P.append(wrap(f'''<div class="pic" style="left:70px;top:150px;width:940px;height:400px;background-image:url({b(duet)})"></div>
 <div class="pic" style="left:70px;top:560px;width:940px;height:300px;background-image:url({b(stu)})"></div>
-<div class="box" style="top:960px">영화 속 노래는 전부 <b>현장에서 라이브로</b> 불렀습니다.<br>오스카 아이작이 어린 시절부터 기타를 쳐서 어려운 내용은 아니었다고.</div>
+<div class="box" style="top:930px;font-size:26px">코엔 형제의 팬이던 오스카 아이작은 포크 영화 소식을 듣자마자 오디션에 매달렸습니다.<br>'Hang Me, Oh Hang Me'를 <b>4시간 동안 30번 넘게</b> 녹음해,<br>그중 하나를 골라 보냈죠.<br>준비하던 중엔 우연히 반 롱크와 함께 연주했던 기타리스트를 만나 직접 배우기도 했죠.</div>
 '''))
 # 5 cat Ulysses — cat cutout again, bigger, centered-right
 d2,cw2,ch2=png('cut_cat.png',900)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st2.jpg',0.2,0.5,0.2,8)})"></div>
 <img class="cut" src="{d2}" style="left:40px;top:{1350-ch2-60}px;width:{cw2}px">
-<div class="box" style="top:170px;left:420px;right:70px">르윈이 하루 종일 안고 다니는 고양이 이름은 <b>율리시스</b>. 호메로스의 『오디세이아』에서 10년을 떠돌다 집으로 돌아온 그 이름이죠.</div>
+<div class="box" style="top:170px;left:420px;right:70px">르윈이 종일 안고 다니는 고양이의 이름은 <b>율리시스</b>.<br>『오디세이아』에서 10년을 떠돌다 집으로 돌아온 영웅의 이름이죠.<br>이 이름은 영화가 거의 끝나서야 밝혀집니다.</div>
 '''))
 # 6 awards — launch poster spotlight
 _pl=Image.open('post_launch1.jpg').convert('RGB'); _pl=tone(_pl.resize((W,int(_pl.height*W/_pl.width)),Image.LANCZOS))
 _top=tuple(int(v) for v in np.median(np.asarray(_pl.crop((0,0,300,30))).reshape(-1,3),0)); _band=grain(Image.new('RGB',(W,140),_top),5)
 P.append(wrap(f'''<div class="bg" style="background:#000"></div><div class="pic" style="left:0;top:0;width:{W}px;height:140px;background-image:url({b(_band)})"></div><div class="pic" style="left:0;top:110px;width:{W}px;height:{_pl.height}px;background-image:url({b(_pl)})"></div><div class="sh" style="height:900px"></div>
-<div class="box" style="top:720px">2013년 제66회 <b>칸영화제 심사위원대상</b>. 전미비평가협회 작품상·감독상·남우주연상·촬영상. 아카데미 촬영상·음향상 후보. 영화제와 시상식에서 174개 부문 후보에 올라 47개를 받았습니다.</div>
+<div class="box" style="top:720px">2013년 <b>칸영화제 심사위원대상</b>.<br>전미비평가협회 작품·감독·남우주연·촬영상 4관왕.<br>아카데미에선 촬영상과 음향상 후보에 올랐습니다.<br>통틀어 174개 부문 후보,<br>47개 수상이죠.</div>
 '''))
 # 7 why now — sofa cutout
 d3,cw3,ch3=png('cut_sofa.png',720)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st4.jpg',0.8,0.5,0.22,8)})"></div>
 <img class="cut" src="{d3}" style="left:{1080-cw3-40}px;top:{1350-ch3-70}px;width:{cw3}px">
-<div class="box" style="top:170px;left:70px;right:330px">2014년 1월 국내 개봉 이후 <b>12년 만의 극장 귀환</b>입니다. 이번엔 4K 화질로 리마스터링되어, 브뤼노 델보넬의 겨울빛 촬영과 라이브로 녹음된 노래를 극장에서 다시 듣고 볼 수 있는 기회입니다.</div>
+<div class="box" style="top:170px;left:70px;right:330px">국내에선 2014년 1월에 개봉했습니다.<br>그로부터 <b>12년</b>,<br>4K 리마스터링으로 다시 극장에 걸립니다.<br>브뤼노 델보넬이 찍은 잿빛 겨울과,<br>현장에서 라이브로 부른 노래를 큰 화면으로 다시 만날 기회죠.</div>
 '''))
 # 8 event
 d4,cw4,ch4=png('cut_phone.png',620)

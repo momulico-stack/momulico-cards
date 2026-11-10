@@ -6,6 +6,7 @@ from playwright.sync_api import sync_playwright
 from PIL import Image, ImageFilter, ImageEnhance
 import numpy as np
 W,H=1080,1350; G=mc.GREEN
+OSW='data:font/woff2;base64,'+base64.b64encode(open(os.path.join(HERE,'../../../tools/fonts/Oswald-Bold.woff2'),'rb').read()).decode()
 def fit(im,w,h,fx=0.5,fy=0.5):
     s=max(w/im.width,h/im.height); im=im.resize((int(im.width*s)+1,int(im.height*s)+1),Image.LANCZOS)
     x=int((im.width-w)*fx); y=int((im.height-h)*fy); return im.crop((x,y,x+w,y+h))
@@ -35,15 +36,19 @@ CSS=f"""{mc.FONTS}*{{margin:0;padding:0;box-sizing:border-box}}body{{width:1080p
 .h1{{position:absolute;z-index:6;left:72px;right:60px;bottom:120px;font-size:84px;font-weight:800;line-height:1.2;letter-spacing:-0.045em;word-break:keep-all}}
 .h1 em{{font-style:normal;color:{G}}}
 .pic{{position:absolute;background-size:cover;background-position:center}}
+@font-face{{font-family:'Oswald';src:url({OSW}) format('woff2');font-weight:700}}
+.blogo{{position:absolute;z-index:9;top:56px;left:50%;transform:translateX(-50%);background:{G};padding:4px 16px 8px;line-height:1}}
+.blogo span{{display:inline-block;font-family:'Oswald';font-weight:700;font-size:46px;color:#fff;letter-spacing:.01em;transform:scaleX(.82);transform-origin:center}}
 """
 TOP='<div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>'
+BLOGO='<div class="blogo"><span>mmlc</span></div>'
 CR='<div class="cr">©2013 Inside Llewyn Davis · 4K 리마스터링 재개봉 2026.12.2</div>'
-def wrap(body): return f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">{body}{TOP}{CR}</div></body></html>'
+def wrap(body,cover=False): return f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">{body}{BLOGO if cover else TOP}{CR}</div></body></html>'
 P=[]
 # 1 cover
-_pm=Image.open('post_main.jpg').convert('RGB'); _pm=_pm.crop((int(_pm.width*0.20),int(_pm.height*0.285),int(_pm.width*0.81),int(_pm.height*0.74)))
+_pm=Image.open('post_main.jpg').convert('RGB'); _pm=_pm.crop((int(_pm.width*0.305),int(_pm.height*0.325),int(_pm.width*0.72),int(_pm.height*0.685)))
 cov=tone(fit(_pm,W,H,0.5,0.5))
-P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><div style="position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0))"></div><div class="sh" style="height:800px"></div><div class="h1">코엔 형제가 <em>실패</em>에 대해<br>만든 가장 아름다운 영화</div>'))
+P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><div style="position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0))"></div><div class="sh" style="height:800px"></div><div class="h1">코엔 형제가 <em>실패</em>에 대해<br>만든 가장 아름다운 영화</div>',cover=True))
 # 2 origin — cat cutout
 d,cw,ch=png('cut_cat.png',820)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st6.jpg',0.5,0.5,0.22,6)})"></div>
@@ -60,7 +65,7 @@ P.append(wrap(f'''<div class="bg" style="background:#000"></div>
 duet=tone(fit(Image.open('st3.jpg').convert('RGB'),940,400,0.5,0.45)); stu=tone(fit(Image.open('ex4.jpg').convert('RGB'),940,400,0.5,0.5))
 P.append(wrap(f'''<div class="pic" style="left:70px;top:150px;width:940px;height:400px;background-image:url({b(duet)})"></div>
 <div class="pic" style="left:70px;top:560px;width:940px;height:300px;background-image:url({b(stu)})"></div>
-<div class="box" style="top:960px">영화 속 노래는 전부 <b>현장에서 라이브로</b> 불렀습니다.<br>오스카 아이작이 어린 시절부터 기타를 쳐서 어려운 내용은 아니였다고.</div>
+<div class="box" style="top:960px">영화 속 노래는 전부 <b>현장에서 라이브로</b> 불렀습니다.<br>오스카 아이작이 어린 시절부터 기타를 쳐서 어려운 내용은 아니었다고.</div>
 '''))
 # 5 cat Ulysses — cat cutout again, bigger, centered-right
 d2,cw2,ch2=png('cut_cat.png',900)
@@ -69,7 +74,9 @@ P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st2.jpg',0
 <div class="box" style="top:170px;left:420px;right:70px">르윈이 하루 종일 안고 다니는 고양이 이름은 <b>율리시스</b>. 호메로스의 『오디세이아』에서 10년을 떠돌다 집으로 돌아온 그 이름이죠.</div>
 '''))
 # 6 awards — launch poster spotlight
-P.append(wrap(f'''<div class="bg" style="background-image:url({b(tone(fit(Image.open('post_launch1.jpg').convert('RGB'),W,H,0.5,0.4)))})"></div><div class="sh" style="height:900px"></div>
+_pl=Image.open('post_launch1.jpg').convert('RGB'); _pl=tone(_pl.resize((W,int(_pl.height*W/_pl.width)),Image.LANCZOS))
+_top=tuple(int(v) for v in np.median(np.asarray(_pl.crop((0,0,300,30))).reshape(-1,3),0)); _band=grain(Image.new('RGB',(W,140),_top),5)
+P.append(wrap(f'''<div class="bg" style="background:#000"></div><div class="pic" style="left:0;top:0;width:{W}px;height:140px;background-image:url({b(_band)})"></div><div class="pic" style="left:0;top:110px;width:{W}px;height:{_pl.height}px;background-image:url({b(_pl)})"></div><div class="sh" style="height:900px"></div>
 <div class="box" style="top:720px">2013년 제66회 <b>칸영화제 심사위원대상</b>. 전미비평가협회 작품상·감독상·남우주연상·촬영상. 아카데미 촬영상·음향상 후보. 영화제와 시상식에서 174개 부문 후보에 올라 47개를 받았습니다.</div>
 '''))
 # 7 why now — sofa cutout

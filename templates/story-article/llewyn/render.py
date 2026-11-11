@@ -37,13 +37,13 @@ CSS=f"""{mc.FONTS}*{{margin:0;padding:0;box-sizing:border-box}}body{{width:1080p
 .pic{{position:absolute;background-size:cover;background-position:center}}
 """
 TOP='<div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>'
-CR='<div class="cr">©2013 Inside Llewyn Davis · 4K 리마스터링 재개봉 2026.12.2</div>'
+CR=''
 def wrap(body,cover=False): return f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="card">{body}{TOP}{CR}</div></body></html>'
 P=[]
 # 1 cover
 _pm=Image.open('post_main.jpg').convert('RGB'); _pm=_pm.crop((int(_pm.width*0.305),int(_pm.height*0.325),int(_pm.width*0.72),int(_pm.height*0.685)))
 cov=tone(fit(_pm,W,H,0.5,0.5))
-P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><div style="position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0))"></div><div class="sh" style="height:800px"></div><div class="h1">코엔 형제가 <em>실패</em>에 대해<br>만든 가장 아름다운 영화</div>',cover=True))
+P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><div style="position:absolute;left:0;right:0;top:0;height:260px;background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,0))"></div><div class="sh" style="height:800px"></div><div class="h1">코엔 형제가 그린<br>가장 아름다운 <em>미완</em></div>',cover=True))
 # 2 origin — cat cutout
 d,cw,ch=png('cut_cat.png',820)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st6.jpg',0.5,0.5,0.22,6)})"></div>

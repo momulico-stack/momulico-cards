@@ -48,7 +48,7 @@ P.append(wrap(f'<div class="bg" style="background-image:url({b(cov)})"></div><di
 d,cw,ch=png('cut_cat.png',820)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st6.jpg',0.5,0.5,0.22,6)})"></div>
 <img class="cut" src="{d}" style="left:40px;top:170px;width:{cw}px">
-<div class="box" style="top:880px;left:360px;right:70px">1961년 2월,<br>뉴욕 그리니치빌리지.<br>포크 가수 르윈 데이비스는 듀오 파트너를 잃고 혼자가 됐습니다.<br>앨범은 안 팔리고,<br>잠은 매일 남의 집 소파에서 자죠.<br>품에 안긴 고양이마저 <b>남의 집 고양이</b>입니다.</div>
+<div class="box" style="top:880px;left:200px;right:70px">1961년 2월,<br>뉴욕 그리니치빌리지.<br>포크 가수 르윈 데이비스는 듀오 파트너를 잃고 혼자가 됐습니다.<br>앨범은 안 팔리고,<br>잠은 매일 남의 집 소파에서 자죠.<br>품에 안긴 고양이마저 <b>남의 집 고양이</b>입니다.</div>
 '''))
 # 3 real model — mic still full + sofa? use mic still as photo
 mic=tone(fit(Image.open('st1.jpg').convert('RGB'),940,560,0.6,0.5))

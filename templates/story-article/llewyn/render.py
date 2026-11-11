@@ -78,7 +78,7 @@ P.append(wrap(f'''<div class="bg" style="background:#000"></div><div class="pic"
 d3,cw3,ch3=png('cut_sofa.png',720)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st4.jpg',0.8,0.5,0.22,8)})"></div>
 <img class="cut" src="{d3}" style="left:{1080-cw3-40}px;top:{1350-ch3-70}px;width:{cw3}px">
-<div class="box" style="top:170px;left:70px;right:330px">국내에선 2014년 1월에 개봉했습니다.<br>그로부터 <b>12년</b>,<br>4K 리마스터링으로 다시 극장에 걸립니다.<br>브뤼노 델보넬이 찍은 잿빛 겨울과,<br>현장에서 라이브로 부른 노래를 큰 화면으로 다시 만날 기회죠.</div>
+<div class="box" style="top:170px;left:70px;right:190px">국내에선 2014년 1월에 개봉했습니다.<br>그로부터 <b>12년</b>,<br>4K 리마스터링으로 다시 극장에 걸립니다.<br>브뤼노 델보넬이 찍은 잿빛 겨울과,<br>현장에서 라이브로 부른 노래를 큰 화면으로 다시 만날 기회죠.</div>
 '''))
 # 8 event
 d4,cw4,ch4=png('cut_phone.png',620)

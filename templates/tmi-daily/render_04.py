@@ -14,7 +14,7 @@ html=f"""<!doctype html><html><head><meta charset="utf-8"><style>{mc.FONTS}
 .h{{position:absolute;left:80px;top:170px;font-size:84px;font-weight:800;letter-spacing:-0.04em;line-height:1.05}}
 .h b{{background:{mc.GREEN};color:#fff;font-weight:800;padding:0 18px 6px;margin-left:4px}}
 .p{{position:absolute;left:80px;width:720px;top:540px;font-size:31px;font-weight:500;line-height:1.6;text-align:justify;text-align-last:left;word-break:break-all;letter-spacing:-0.01em}}
-.p::first-letter{{float:left;font-size:112px;line-height:.82;font-weight:800;margin:10px 14px 110px 0;color:#fff}}
+.p::first-letter{{float:left;font-size:112px;line-height:.82;font-weight:800;margin:10px 14px 230px 0;color:#fff}}
 .st{{position:absolute;z-index:4}}
 </style></head><body><div class="card">
 <div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>

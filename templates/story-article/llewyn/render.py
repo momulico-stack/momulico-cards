@@ -66,7 +66,7 @@ P.append(wrap(f'''<div class="pic" style="left:70px;top:150px;width:940px;height
 d2,cw2,ch2=png('cut_cat.png',900)
 P.append(wrap(f'''<div class="bg" style="background-image:url({bgdim('st2.jpg',0.2,0.5,0.2,8)})"></div>
 <img class="cut" src="{d2}" style="left:40px;top:{1350-ch2-60}px;width:{cw2}px">
-<div class="box" style="top:170px;left:420px;right:70px">르윈이 종일 안고 다니는 고양이의 이름은 <b>율리시스</b>.<br>『오디세이아』에서 10년을 떠돌다 집으로 돌아온 영웅의 이름이죠.<br>이 이름은 영화가 거의 끝나서야 밝혀집니다.</div>
+<div class="box" style="top:170px;left:420px;right:70px">르윈이 종일 안고 다니는 고양이의 이름은 <b>율리시스</b>.<br>『오디세이아』에서 10년을 떠돌다 집으로 돌아온 영웅의 이름이죠.</div>
 '''))
 # 6 awards — launch poster spotlight
 _pl=Image.open('post_launch1.jpg').convert('RGB'); _pl=tone(_pl.resize((W,int(_pl.height*W/_pl.width)),Image.LANCZOS))

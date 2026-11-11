@@ -55,7 +55,7 @@ mic=tone(fit(Image.open('st1.jpg').convert('RGB'),940,560,0.6,0.5))
 P.append(wrap(f'''<div class="bg" style="background:#000"></div>
 <div class="pic" style="left:70px;top:160px;width:940px;height:560px;background-image:url({b(mic)})"></div>
 <div class="box" style="top:780px">르윈의 모델은 실존 포크 가수 <b>데이브 반 롱크</b>입니다.<br>코엔 형제는 그의 회고록 『맥두걸 스트리트의 시장』에서 이 영화를 출발시켰죠.<br>반 롱크는 무명이던 밥 딜런을 자기 집 소파에 재워 주던 선배였습니다.</div>
-<div class="pl" style="top:1060px">딜런은 스타가 됐고,<br><b>반 롱크는 그 동네에 남았죠.</b></div>'''))
+<div class="pl" style="top:1060px">딜런은 전설적인 포크 가수가 되었고,<br><b>반 롱크는 그 동네에 남았죠.</b></div>'''))
 # 4 live recording — duet still + studio still
 duet=tone(fit(Image.open('st3.jpg').convert('RGB'),940,400,0.5,0.45)); stu=tone(fit(Image.open('ex4.jpg').convert('RGB'),940,400,0.5,0.5))
 P.append(wrap(f'''<div class="pic" style="left:70px;top:150px;width:940px;height:400px;background-image:url({b(duet)})"></div>

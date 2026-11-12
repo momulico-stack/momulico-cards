@@ -4,7 +4,7 @@ import make_cards as mc
 from playwright.sync_api import sync_playwright
 from PIL import Image
 def b(p): return "data:image/png;base64,"+base64.b64encode(open(p,'rb').read()).decode()
-S={k:Image.open(k).size for k in ('st_m3.png','st_g4.png','st_n04.png')}
+S={k:Image.open(k).size for k in ('st_mc.png','st_g4.png','st_n04.png','st_yg.png')}
 html=f"""<!doctype html><html><head><meta charset="utf-8"><style>{mc.FONTS}
 *{{margin:0;padding:0;box-sizing:border-box}}body{{width:1080px;height:1350px;background:#000;font-family:'Pretendard'}}
 .card{{position:relative;width:1080px;height:1350px;overflow:hidden;background:#000;color:#fff}}
@@ -20,9 +20,10 @@ html=f"""<!doctype html><html><head><meta charset="utf-8"><style>{mc.FONTS}
 <div class="top"><span class="rec"></span><span class="logo">mmlc</span></div>
 <div class="n">5.</div><div class="h">오늘의<br><b style="margin-left:0">TMI</b></div>
 <p class="p">라이언 고슬링은 〈노트북〉 촬영 중 레이첼 맥아담스를 향해<br>“저 여자에게선 아무것도 느껴지지 않는다” 하여<br>대판 싸워놓고 촬영을 마치자마자 사귀었다.</p>
-<img class="st" src="{b('st_m3.png')}" style="left:690px;top:110px;width:{S['st_m3.png'][0]}px">
-<img class="st" src="{b('st_g4.png')}" style="left:70px;top:860px;width:{S['st_g4.png'][0]}px">
-<img class="st" src="{b('st_n04.png')}" style="left:520px;top:800px;width:{S['st_n04.png'][0]}px">
+<img class="st" src="{b('st_mc.png')}" style="left:610px;top:110px;width:{S['st_mc.png'][0]}px">
+<img class="st" src="{b('st_g4.png')}" style="left:50px;top:860px;width:{S['st_g4.png'][0]}px">
+<img class="st" src="{b('st_yg.png')}" style="left:365px;top:790px;width:{S['st_yg.png'][0]}px">
+<img class="st" src="{b('st_n04.png')}" style="left:630px;top:810px;width:{S['st_n04.png'][0]}px">
 </div></body></html>"""
 with sync_playwright() as p:
     br=p.chromium.launch(); pg=br.new_page(viewport={"width":1080,"height":1350})
